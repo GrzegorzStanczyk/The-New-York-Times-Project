@@ -17,34 +17,36 @@
     <!-- Main Content -->
     <div class="container">
         <div class="row articles-container">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">                
-                <div class="col-lg-8">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <input 
-                                id="input-search" 
-                                type="text" class="form-control input-search" 
-                                placeholder="Search for..."
-                                [(ngModel)]="inputSearch"
-                                (keyup.enter)="onSearch()">
-                            <span class="input-group-btn">
-                                <button 
-                                    class="btn btn-default" 
-                                    type="button" 
-                                    (click)="onSearch()">Go!</button>
-                            </span>
-                        </div><!-- /input-group -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">  
+                <div class="row">             
+                    <div class="col-lg-8">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input 
+                                    id="input-search" 
+                                    type="text" class="form-control input-search" 
+                                    placeholder="Search for..."
+                                    [(ngModel)]="inputSearch"
+                                    (keyup.enter)="onSearch()">
+                                <span class="input-group-btn">
+                                    <button 
+                                        class="btn btn-default" 
+                                        type="button" 
+                                        (click)="onSearch()">Go!</button>
+                                </span>
+                            </div><!-- /input-group -->
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="form-group">
-                        <form #myForm="ngForm" novalidate>
-                            <my-date-range-picker 
-                                name="mydaterange" 
-                                [options]="myDateRangePickerOptions"
-                                [(ngModel)]="model"
-                                required></my-date-range-picker>
-                        </form>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <form #myForm="ngForm" novalidate>
+                                <my-date-range-picker 
+                                    name="mydaterange" 
+                                    [options]="myDateRangePickerOptions"
+                                    [(ngModel)]="model"
+                                    required></my-date-range-picker>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <div class="post-preview"  *ngFor="let resp of renderContent">
