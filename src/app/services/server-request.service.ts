@@ -9,6 +9,11 @@ export class ServerRequestService {
   
   constructor(private http: Http) { }
 
+  //Parse object values to appropriate string
+  leadingZero(i): string {
+    return (i < 10)? '0'+i : i;
+  }
+
   getServers(question: string, page: number, date) {
     let params;
     if (date === undefined || date === null) {
@@ -20,10 +25,9 @@ export class ServerRequestService {
         'page': page
       }
     } else {
-      //Parse object values to appropriate string
-      const begin_date = `${date.beginDate.year}${("" + date.beginDate.month).length === 1 ? "0" + date.beginDate.month : date.beginDate.month}${("" + date.beginDate.day).length === 1 ? "0" + date.beginDate.day : date.beginDate.day}`;
-      const end_date = `${date.endDate.year}${("" + date.endDate.month).length === 1 ? "0" + date.endDate.month : date.endDate.month}${("" + date.endDate.day).length === 1 ? "0" + date.endDate.day : date.endDate.day}`
-      
+      const begin_date = `${date.beginDate.year}${this.leadingZero(date.beginDate.month)}${this.leadingZero(date.beginDate.day)}`;
+      const end_date = `${date.endDate.year}${this.leadingZero(date.endDate.month)}${this.leadingZero(date.endDate.day)}`
+
       params = {
         'api-key': 'd8e00c8784034ecea61d8abdd367d579',
         'q': question,

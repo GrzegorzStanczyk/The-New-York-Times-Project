@@ -3,7 +3,7 @@ import { Response } from '@angular/http'
 import { Observable } from 'rxjs';
 import { DOCUMENT } from '@angular/platform-browser';
 import { Subject } from 'rxjs/Subject';
-import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/throttleTime';
 
 
 import { ServerRequestService } from './services/server-request.service';
