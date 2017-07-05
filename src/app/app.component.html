@@ -23,6 +23,7 @@
                         <div class="form-group">
                             <div class="input-group">
                                 <input 
+                                    [formControl]="term"
                                     id="input-search" 
                                     type="text" class="form-control input-search" 
                                     placeholder="Search for..."
@@ -44,6 +45,7 @@
                                     name="mydaterange" 
                                     [options]="myDateRangePickerOptions"
                                     [(ngModel)]="model"
+                                    placeholder="Choose a date"
                                     required></my-date-range-picker>
                             </form>
                         </div>
@@ -56,15 +58,9 @@
                         </h2>
                         <h3 class="post-subtitle" [innerHTML]="resp.snippet"> </h3>
                     </a>
-                    <p class="post-meta">Posted {{resp.byline.original || ""}} on {{resp.pub_date}}</p>
+                    <p class="post-meta">Posted {{resp.byline ? resp.byline.original : ""}} on {{resp.pub_date}}</p>
                     <hr>                
                 </div>
-                <!-- Pager -->
-                <!--<ul class="pager">
-                    <li class="next">
-                        <a href="#" (click)="onGetMore($event)">Older Posts &rarr;</a>
-                    </li>
-                </ul>-->
             </div>
         </div>
     </div>
